@@ -7,15 +7,17 @@ const state = {
 };
 
 const getters = {
-
+    allImageData: (state) => ({...state}),
 };
 
 const actions = {
- 
+    caputreImageURL: ({commit}, event) => {
+        commit('setImageURL', event.target.value)
+    }
 };
 
 const mutations = {
-
+    setImageURL: (state, url) => state.imageURL = url
 };
 
 export default {
