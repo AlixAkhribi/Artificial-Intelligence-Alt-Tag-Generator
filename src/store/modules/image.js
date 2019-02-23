@@ -29,6 +29,12 @@ const actions = {
 const mutations = {
     setImageURL: (state, url) => state.imageURL = url,
 
+    // setImageData takes in image data object and sets the properties to state. Does not set URL
+    setImageData: (state, response) => {
+        state =  Object.assign(state, {
+            ...response
+        })
+    }
 };
 
 export default {
