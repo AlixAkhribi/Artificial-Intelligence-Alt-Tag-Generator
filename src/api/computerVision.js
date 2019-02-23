@@ -16,8 +16,13 @@ export default {
                 "Ocp-Apim-Subscription-Key": SUBSCRIPTION_KEY
             },
         })
-            .then((result) => result.data.description)
+            .then((result) => {
+                return {
+                    imageTags: result.data.description.tags,
+                    imageDescription: result.data.description.captions[0].text,
+                }
+            })
             .catch((err) => err)
-    }
+    },
 }
 
