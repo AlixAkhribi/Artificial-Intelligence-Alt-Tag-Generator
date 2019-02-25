@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const LOCATION = 'https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Description&language=en'
+const LOCATION = 'https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Description,color&language=en'
 const SUBSCRIPTION_KEY = ""
 
 export default {
@@ -20,6 +20,7 @@ export default {
                 return {
                     imageTags: result.data.description.tags,
                     imageDescription: result.data.description.captions[0].text,
+                    isBwImg: result.data.color.isBwImg
                 }
             })
             .catch((err) => err)
