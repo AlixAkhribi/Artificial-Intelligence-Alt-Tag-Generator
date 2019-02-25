@@ -4,6 +4,7 @@ const state = {
     imageDescription: "",
     imageTags: null,
     imageURL: "",
+    isBWImg: null,
 };
 
 const getters = {
