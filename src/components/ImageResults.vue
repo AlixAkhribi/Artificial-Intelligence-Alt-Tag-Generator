@@ -1,19 +1,36 @@
 <template>
   <div class="image-results card">
-    <h1 class="card-header">Image Response</h1>
-    <div class="image-results-wrapper">
-      <div class="image-results-photo">
-        <img :src="allImageData.imageURL" :alt="allImageData.imageDescription">
-      </div>
-      <div class="image-results-tabs-wrapper">
-        <ul class="tabs-title">
-          <li name="image-results-description" class="tab-title">Description</li>
-        </ul>
-        <div class="image-results-tags tab-child">
-          <p>{{allImageData.imageDescription}}</p>
+    <md-card>
+      <md-card-header>
+        <div class="md-title">Image Results</div>
+      </md-card-header>
+      <md-divider></md-divider>
+
+      <div class="image-results-info" v-if="allImageData.imageDescription">
+        <div class="image-results-photo">
+          <img :src="allImageData.imageURL" :alt="allImageData.imageDescription">
         </div>
+
+        <md-tabs class="md-primary" md-sync-route>
+          <md-tab id="tab-posts active-tab-button" md-label="Description">
+            <p class="tab-content">{{allImageData.imageDescription}}</p>
+          </md-tab>
+
+          <md-tab id="tab-posts" md-label="Image Tags">
+            <p class="tab-content">{{allImageData.imageTags}}</p>
+          </md-tab>
+        </md-tabs>
       </div>
-    </div>
+
+      <div v-else class="no-image-results">
+        <md-empty-state
+          md-icon="image"
+          md-label="No Image"
+          md-description="Use the form Image form to display the analyzed results here"
+        ></md-empty-state>
+      </div>
+      
+    </md-card>
   </div>
 </template>
 
@@ -28,21 +45,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.image-results {
-  font-size: 1.6rem;
-  height: 60rem;
-  width: 50%;
+.md-card {
+  height: 800px;
 }
 
-.image-results-wrapper {
-  position: absolute;
-  display: flex;
-  width: 90%;
-  flex-direction: column;
-  padding: 5px 15px;
-  margin: 5px 20px;
-  height: 85%;
-  justify-content: space-evenly;
+.image-results {
+  margin: 2.5rem;
+  margin-left: 1.25rem;
 }
 
 .image-results-photo {
@@ -53,23 +62,23 @@ export default {
   }
 }
 
-.image-results-tabs-wrapper {
-  text-align: center;
-  font-size: 1.6rem;
-  background: #4b4471;
-  box-shadow: 0.1rem 0.2rem 1.4rem black;
+.image-results-info {
+  height: 90%;
 }
 
-.image-results-description {
-  text-align: center;
+.image-results-photo {
+  margin: 3rem;
+
+  img {
+    height: 50rem;
+  }
 }
 
-.image-results-tabs {
-  display: flex;
+.no-image-results {
+  height: 90%;
 }
 
-.tab-title {
-  list-style: none;
-  padding: 0;
+.md-empty-state {
+  height: 90%;
 }
 </style>
