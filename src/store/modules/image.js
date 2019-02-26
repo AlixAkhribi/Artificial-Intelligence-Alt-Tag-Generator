@@ -4,11 +4,22 @@ const state = {
     imageDescription: "",
     imageTags: null,
     imageURL: "",
-    isBWImg: null,
+    isBwImg: null,
 };
 
 const getters = {
-    allImageData: (state) => ({ ...state }),
+    allImageData: (state) => {
+        if(state.isBwImg){
+            return{
+                ...state,
+                imageDescription: `Black and White image of ${state.imageDescription}`
+            }
+        } else{
+            return{
+                ...state
+            }
+        }
+    },
 };
 
 const actions = {
