@@ -1,7 +1,13 @@
 <template>
   <div id="app-wrapper">
-    <InputForm/>
-    <ImageResults/>
+    <div class="row">
+      <div class="col s4">
+        <InputForm/>
+      </div>
+      <div class="col s7">
+        <ImageResults/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,40 +29,52 @@ export default {
   font-size: 62.5%;
 }
 
-html {
-  font-family: "Cabin", Sans-Serif;
+// Materialize Global Overides //
+
+.md-card-header{
+  background-color: #0000001e
+}
+
+.md-subhead {
+  font-size: 2.3rem !important;
+}
+
+.md-button-content {
   font-size: 1.6rem;
-  color: #eeeeee;
+  letter-spacing: 0.1rem !important;
 }
 
-h1 {
-  font-family: "Roboto Condensed", Sans-Serif;
-  font-size: 3.6rem;
+.md-button {
+  background: none !important;
+
+  &:hover{
+    background: #4db6acd2 !important;
+  }
 }
 
-body {
-  background: #1d2031;
+.md-tabs-navigation{
+  background: none !important;
 }
 
-#app-wrapper {
-  display: flex;
-  margin-top: 4rem;
+.md-divider {
+  background-color: #4db6ac !important;
 }
 
-.card {
-  background: #242630;
-
-  box-shadow: 0.1rem 0.2rem 1.4rem black;
-  position: relative;
+.md-ripple {
+  color: white !important;
 }
 
-.card-header {
-  display: flex;
-  justify-content: center;
-  background: #4b4471;
-  box-shadow: 0rem 0.3rem 0.7rem 0.1rem black;
-  margin: 0;
-  padding: 0.8rem;
+.md-tabs-content {
+  height: 118px !important;
+  background: #0000001e !important;
+  font-size: 2rem !important;
+  letter-spacing: .02rem !important
 }
+
+input {
+  color: white;
+}
+
+
 </style>
 
