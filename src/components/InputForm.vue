@@ -1,17 +1,29 @@
 <template>
   <div class="image-input-form card">
-    <h1 class="card-header">Image Requirements</h1>
-    <form>
-      <ul class="image-input-requirements">
-        <li>The image must be presented in JPEG, PNG, GIF, or BMP format</li>
-        <li>The file size of the image must be less than 4 megabytes (MB)</li>
-        <li>The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels</li>
-      </ul>
-      <div class="image-input">
-        <input class="image-input-url" @change="caputreImageURL" placeholder="paste URL here">
-        <button class="image-input-button" @click="sendImageURL">Analyze image</button>
-      </div>
-    </form>
+    <md-card>
+      <md-card-header class="">
+        <div class="md-title">Image</div>
+      </md-card-header>
+      <md-divider></md-divider>
+      <md-card-content>
+        <div class="md-subhead">Requirements</div>
+        <ul class="image-input-requirements">
+          <li>The image must be presented in JPEG, PNG, GIF, or BMP format</li>
+          <li>The file size of the image must be less than 4 megabytes (MB)</li>
+          <li>The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels</li>
+        </ul>
+      </md-card-content>
+
+      <md-card-content>
+        <div class="md-subhead">Image URL</div>
+        <div class="image-input-url">
+          <div class="input-field col s12">
+            <input @change="caputreImageURL" id="first_name" type="text" class="validate">
+          </div>
+          <md-button class="z-depth-3" @click="sendImageURL">Analyze image</md-button>
+        </div>
+      </md-card-content>
+    </md-card>
   </div>
 </template>
 
@@ -25,65 +37,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.image-input-form {
-  font-size: 1.6rem;
-  width: 35%;
-  margin: 0 3rem;
-  height: 40rem;
+.card {
+  height: 55rem;
 }
 
-form {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 80%;
+.md-subhead {
+  padding: 0.9rem 0;
 }
+
+.md-card {
+  height: 100%;
+}
+
+
 
 .image-input-requirements {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin: 0 auto;
-  height: 45%;
+  padding-left: 2rem;
+  font-size: 1.8rem;
+
+  li {
+    padding: 0.7rem 0;
+  }
+}
+
+
+
+.image-input-form {
+  margin: 2.5rem;
+  margin-right: 1.25rem;
 }
 
 .image-input-url {
   display: flex;
-  background: #4b4471;
-  border: 0;
-  width: 90%;
-  margin: auto;
-  padding: 1rem 0.5rem;
-  color: white;
-  box-shadow: 0.1rem 0.2rem .4rem black;
-
-  &::placeholder {
-    color: rgba(255, 255, 255, 0.678);
-  }
-
-  &:focus {
-    outline: none;
-  }
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.image-input-button {
-  display: flex;
-  margin: 1.5rem auto;
-  background: #4b4471;
-  color: white;
-  border: 0;
-  padding: 1rem 3rem;
-  font-size: 1.6rem;
-  box-shadow: 0.1rem 0.2rem 1.4rem black;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-
-  &:hover {
-    transition: 0.3s ease-in-out;
-    transform: translateY(-0.2rem);
-    box-shadow: 0.1rem 0.8rem 1.4rem black;
-  }
+.md-card-actions {
+  flex-direction: column;
 }
 </style>
